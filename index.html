@@ -36,8 +36,8 @@
 </script>
 <script>
   // tema e idioma aplicados antes da pintura (evita "piscar")
-  try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t;
-        else if (matchMedia('(prefers-color-scheme: light)').matches) document.documentElement.dataset.theme = 'light'; } catch (e) {}
+  // padrão: escuro; claro só se o visitante escolher no botão
+  try { var t = localStorage.getItem('theme'); if (t === 'light') document.documentElement.dataset.theme = 'light'; } catch (e) {}
 </script>
 <style>
 :root{
@@ -621,10 +621,10 @@ footer .mono{font-family:'JetBrains Mono',monospace}
   /* ---------- contador de visitas (GoatCounter, sem cookies) ----------
      1. Crie a conta gratuita em https://www.goatcounter.com com o código "ncontatori"
      2. Troque GOATCOUNTER abaixo para 'ncontatori' e publique novamente. */
-  var GOATCOUNTER = '';
+  var GOATCOUNTER = 'ncontatori';
   if (GOATCOUNTER) {
     var s = document.createElement('script');
-    s.async = true; s.src = '//gc.zgo.at/count.js';
+    s.async = true; s.src = 'https://gc.zgo.at/count.js';
     s.setAttribute('data-goatcounter', 'https://' + GOATCOUNTER + '.goatcounter.com/count');
     document.body.appendChild(s);
   }
